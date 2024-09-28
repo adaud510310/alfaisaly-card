@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myCss.css">
+    <title>بطاقات تهنئة العيد الفطر</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <!--<img src="pic/flogo2.png" alt="">-->
+            <img src="pic/new-logo.svg?v=2" alt="">
+            <img src="pic/22 1.png" alt="">
+        </div>
+    </nav>
+    <section class="px-2">
+        <div class="container app-cont mt-4">
+            <form id="myform" class="form-style" action="">
+                <div class="row">
+                    <div class="col-12">
+                        <p> ادخل الاسم ثم اختر الصوره واضغط علي زر العرض</p>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control name-inp" placeholder="ادخل الاسم هنا">
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="Radio1" name="pic" class="custom-control-input" data-color="#E8B923"
+                                checked>
+                            <label class="custom-control-label" for="Radio1">
+                                <img src="pic/1.jpg" alt="">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="Radio2" name="pic" class="custom-control-input"
+                                data-color="#E8B923">
+                            <label class="custom-control-label" for="Radio2">
+                                <img src="pic/2.jpg" alt="">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="Radio3" name="pic" class="custom-control-input"
+                                data-color="#ffffff">
+                            <label class="custom-control-label" for="Radio3">
+                                <img src="pic/3.jpg" alt="">
+                            </label>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-3 col-6">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="Radio4" name="pic" class="custom-control-input" data-color="#e8b923">
+                            <label class="custom-control-label" for="Radio4">
+                                <img src="pic/4.jpg" alt="">
+                            </label>
+                        </div>
+                    </div> -->
+                </div>
+            </form>
+            <div class="abs-wr">
+                <div id="print" class="to-img">
+                    <img class="myimg" src="pic/1.jpg" alt="">
+                    <div class="name"></div>
+                </div>
+            </div>
+            <button id="showbtn" type="submit" class="btn  btn-primary mt-4" data-toggle="modal"
+                data-target="#showModal">عرض الصوره</button>
+        </div>
+
+    </section>
+    <!-- Modal -->
+    <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i><i class="fas fa-times"></i></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="to-img show-version">
+                        <img class="myimg" src="pic/1.jpg" alt="">
+                        <div class="name"></div>
+                    </div>
+                    <button id="download" type="button" class="btn  btn-primary mt-4">تحميل
+                        <i class="fas fa-download"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/html2canvas.min.js"></script>
+    <script src="js/myJquery.js"></script>
+    <script>
+        $(window).on('load', function () {
+
+            // var imgparent = $('.to-img');
+
+            var showbtn = $('#showbtn');
+            var myimg = $('.myimg');
+            var imgsrc = $("input[name='pic']:checked").siblings().find('img').attr('src');
+            var namebox = $(".to-img .name");
+            var color = $("input[name='pic']:checked").attr("data-color");
+            if ($("input:radio[name=pic]").length) {
+                myimg.attr("src", imgsrc);
+                namebox.css('color', color);
+            }
+
+            $(".name-inp").on('change keyup paste', function () {
+                namebox.text(($("input.name-inp").val()).trim())
+            });
+
+            $("input:radio[name=pic]").click(function () {
+                var imgsrc = $(this).siblings().find('img').attr('src');
+                var color = $(this).attr("data-color");
+                namebox.css('color', color);
+                myimg.attr("src", imgsrc);
+            })
+
+            $("#myform").on('submit', function (e) {
+                e.preventDefault();
+                myimg.attr("src", imgsrc);
+                namebox.text(($("input.name-inp").val()).trim())
+            });
+
+
+            document.getElementById("download").addEventListener("click", function () {
+
+                html2canvas(document.querySelector('#print')).then(function (canvas) {
+
+                    saveAs(canvas.toDataURL(), 'Eid-Adha.png');
+                });
+            });
+
+
+            function saveAs(uri, filename) {
+
+                var link = document.createElement('a');
+
+                if (typeof link.download === 'string') {
+
+                    link.href = uri;
+                    link.download = filename;
+
+                    //Firefox requires the link to be in the body
+                    document.body.appendChild(link);
+
+                    //simulate click
+                    link.click();
+
+                    //remove the link when done
+                    document.body.removeChild(link);
+
+                } else {
+
+                    window.open(uri);
+
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

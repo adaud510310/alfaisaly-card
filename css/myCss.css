@@ -1,0 +1,242 @@
+@font-face {
+    font-family: sitefont;
+    src: url("../fonts/behance-64204cc9e1da8.otf") format("truetype");
+}
+
+body,
+html {
+    text-align: right;
+    direction: rtl;
+}
+
+@font-face {
+    font-family: sitefont;
+    font-weight: bold;
+    src: url("../fonts/behance-64204cc9e1da8.otf") format("truetype");
+}
+
+body {
+    font-family: 'sitefont', sans-serif;
+    background-image: url(../pic/lan2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+img {
+    max-width: 100%;
+}
+
+.navbar {
+    background-color: #ffffffda;
+}
+
+.navbar .container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .container img {
+    max-height: 80px;
+}
+
+.app-cont {
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.form-style {
+    margin-top: 1rem;
+}
+
+.form-style .form-control {
+    height: 50px;
+    border-radius: 6px;
+    border: 2px solid #28317771;
+    margin-bottom: 1.5rem;
+    box-shadow: none !important;
+}
+
+.custom-radio label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid #28317771;
+    background-color: #ffffff;
+    border-radius: 6px;
+    opacity: .7;
+}
+
+.custom-radio label img {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.custom-radio {
+    padding: 0 !important;
+}
+
+@media (max-width: 767.98px) {
+    .custom-radio {
+        margin-bottom: 12px;
+    }
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label::after,
+.extra-serv .custom-radio .custom-control-label::after {
+    display: none !important;
+}
+
+.custom-radio .custom-control-label::before {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #D4D4D4;
+    width: 24px;
+    height: 24px;
+    left: 14px;
+    top: 14px;
+    bottom: auto;
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before {
+    opacity: 1;
+    background-color: #ffffff;
+    color: #1059C4;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f058";
+    font-size: 26px;
+    box-shadow: unset;
+    border-color: transparent;
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label {
+    opacity: 1;
+    box-shadow: 0 0 2px #283177ce;
+}
+
+.btn-primary {
+    background-color: #283177;
+    border-color: #283177;
+    box-shadow: none !important;
+    min-height: 50px;
+    min-width: 180px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #121147;
+    border-color: #283177;
+}
+
+.to-img.show-version {
+    width: 100%;
+    max-width: 300px;
+}
+
+.to-img.show-version .cat {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.to-img.show-version .name {
+    font-size: 18px;
+}
+
+.modal-header {
+    border: 0;
+    padding-bottom: 0;
+}
+
+.modal-header .close {
+    padding: 1rem 1rem;
+    margin: -1rem auto -1rem -1rem;
+}
+
+.modal-dialog {
+    max-width: 332px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-content {
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.modal-open .modal {
+    overflow: hidden auto;
+    background: rgb(0 0 0 / 20%);
+}
+
+.modal .btn-primary {
+    display: block;
+    width: 100%;
+}
+
+.emp-v .to-img .name {
+    color: #ffffff;
+}
+
+/* ========================= img temp ===================================== */
+
+.abs-wr {
+    position: absolute;
+    left: -2000px;
+}
+
+.to-img {
+    width: 900px;
+    position: relative;
+    border: 0;
+    overflow: hidden;
+}
+
+.to-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.to-img .cat {
+    position: absolute;
+    height: auto;
+    width: 100%;
+    padding: 10px 0;
+    left: 0;
+    right: 0;
+    bottom: 5.5%;
+    text-align: center;
+    font-size: 41px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.to-img .name {
+    position: absolute;
+    height: auto;
+    width: 100%;
+    padding: 10px 0;
+    left: 0;
+    right: 0;
+    bottom: 17%;
+    text-align: center;
+    font-size: 56px;
+}
+
+.emp-v .to-img .name {
+    bottom: 14%;
+}
+
+.emp-v .to-img .name,
+.emp-v .to-img .cat {
+    padding: 0 10px;
+}
