@@ -17,6 +17,7 @@ html {
 
 body {
     font-family: 'sitefont', sans-serif;
+    font-size: 25px;
     background-image: url(../pic/lan2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
